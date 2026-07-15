@@ -76,7 +76,7 @@ fn main() {
 
 ### 运行截图
 
-![image-20260714211929072](./assets/image-20260714211929072.png)
+![image-20260714211929072](./lesson_1/lesson1_运行结果.png)
 
 
 
@@ -174,7 +174,7 @@ fn main() {
 
 
 
-![image-20260714211825726](./assets/image-20260714211825726.png)
+![image-20260714211825726](./lesson_2/lesson2.png)
 
 
 
@@ -343,7 +343,7 @@ fn main() -> anyhow::Result<()> {
 
 ### 运行截图
 
-![image-20260714213700880](./assets/image-20260714213700880.png)
+![image-20260714213700880](./lesson_3/lesson3.png)
 
 
 
