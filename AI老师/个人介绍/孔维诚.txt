@@ -1,0 +1,9 @@
+孔维诚 - 个人技术栈介绍
+一、后端开发
+语言与框架：Python，FastAPI
+LLM 对接：OpenAI SDK、Anthropic SDK
+工具：Git、uv、npm
+二、前端开发
+框架：React、TypeScript
+构建：Vite
+
