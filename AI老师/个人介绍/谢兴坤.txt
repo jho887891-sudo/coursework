@@ -1,0 +1,5 @@
+个人技术栈
+1.掌握java语言,了解springboot3框架。
+2.掌握数据库MySQL和mybatis交互工具。
+3.掌握HTML、CSS、JavaScript前端知识，掌握vue3前端开发框架。
+4.掌握c语言语法以及数据结构。
