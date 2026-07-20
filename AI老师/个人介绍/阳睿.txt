@@ -1,0 +1,11 @@
+技术栈：
+一、移动端开发
+HarmonyOS、ArkTS，独立完成鸿蒙原生APP从需求、界面、业务逻辑到上架优化全流程开发
+二、前端开发
+HTML / CSS / JavaScript、Vue2/Vue3 + Element UI/Element Plus、Vite、React + Tailwind CSS
+ECharts数据可视化、Matter.js物理交互引擎、响应式多端适配、Excel/PDF导出、图片上传预览
+三、Python & AI计算机视觉
+Python、FastAPI、PySide6桌面GUI开发
+深度学习目标检测：YOLO11s、YOLO26n、ByteTrack多目标跟踪
+OpenCV视频帧处理、Roboflow数据集标注、MediaPipe手势/姿态识别
+模型训练、数据增强、消融实验、异步推理服务、AI Agent开发

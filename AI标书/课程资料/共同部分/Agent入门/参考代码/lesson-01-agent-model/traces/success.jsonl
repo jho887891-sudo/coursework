@@ -1,0 +1,4 @@
+{"run_id":"lesson1-success","step":0,"state_summary":"topic/date/participants/path present; material_text missing","action":"read_material","action_args":{"path":"test_material.txt"}}
+{"run_id":"lesson1-success","step":0,"observation":"material_loaded","observation_summary":"path matched; non-empty content returned"}
+{"run_id":"lesson1-success","step":1,"state_summary":"all required fields and material content present","action":"produce_checklist"}
+{"run_id":"lesson1-success","step":1,"termination":"completed"}

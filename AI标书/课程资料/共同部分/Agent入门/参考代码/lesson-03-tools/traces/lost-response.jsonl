@@ -1,0 +1,4 @@
+{"request_id":"demo-lost-response","tool_name":"counter_add","attempt":1,"event_type":"attempt_started","detail":"调用已通过 schema 与权限检查","elapsed_millis":0}
+{"request_id":"demo-lost-response","tool_name":"counter_add","attempt":1,"event_type":"tool_failed","detail":"工具超过 10ms deadline","elapsed_millis":20}
+{"request_id":"demo-lost-response","tool_name":"counter_add","attempt":1,"event_type":"attempt_started","detail":"调用已通过 schema 与权限检查","elapsed_millis":0}
+{"request_id":"demo-lost-response","tool_name":"counter_add","attempt":1,"event_type":"tool_succeeded","detail":"{\"key\":\"score\",\"value\":1}","elapsed_millis":0}

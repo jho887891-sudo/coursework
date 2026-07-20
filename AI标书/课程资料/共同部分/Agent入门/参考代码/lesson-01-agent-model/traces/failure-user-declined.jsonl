@@ -1,0 +1,4 @@
+{"run_id":"lesson1-user-declined","step":0,"state_summary":"date missing","action":"ask_for_date"}
+{"run_id":"lesson1-user-declined","step":0,"observation":"user_declined"}
+{"run_id":"lesson1-user-declined","step":1,"state_summary":"user_declined=true","action":"stop","reason":"user_declined"}
+{"run_id":"lesson1-user-declined","step":1,"termination":"stopped","reason":"user_declined"}

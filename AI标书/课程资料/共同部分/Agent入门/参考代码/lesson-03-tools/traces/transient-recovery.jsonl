@@ -1,0 +1,4 @@
+{"request_id":"demo-transient","tool_name":"faulty","attempt":1,"event_type":"attempt_started","detail":"调用已通过 schema 与权限检查","elapsed_millis":0}
+{"request_id":"demo-transient","tool_name":"faulty","attempt":1,"event_type":"retry_scheduled","detail":"模拟瞬态错误","elapsed_millis":0}
+{"request_id":"demo-transient","tool_name":"faulty","attempt":2,"event_type":"attempt_started","detail":"调用已通过 schema 与权限检查","elapsed_millis":0}
+{"request_id":"demo-transient","tool_name":"faulty","attempt":2,"event_type":"tool_succeeded","detail":"{\"status\":\"ok\"}","elapsed_millis":0}

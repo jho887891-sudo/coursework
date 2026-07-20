@@ -1,0 +1,12 @@
+{"id":"normal","tool":"read_fixture","path":"allowed.txt","expected":"success"}
+{"id":"traversal","tool":"read_fixture","path":"../secret.txt","expected":"permission_denied"}
+{"id":"unknown","tool":"shell","path":"allowed.txt","expected":"unknown_tool"}
+{"id":"bad_args","tool":"read_fixture","path":"","expected":"invalid_arguments"}
+{"id":"oversized_input","tool":"echo","input":"0123456789abcdef","expected":"invalid_arguments"}
+{"id":"read_only_write","tool":"counter_add","key":"x","expected":"permission_denied"}
+{"id":"transient_once","tool":"faulty","failures":["transient","success"],"max_retries":1,"expected":"success"}
+{"id":"transient_exhausted","tool":"faulty","failures":["transient","transient"],"max_retries":1,"expected":"transient"}
+{"id":"permanent_no_retry","tool":"faulty","failures":["permanent","success"],"max_retries":3,"expected":"permanent"}
+{"id":"timeout_visible","tool":"faulty","failures":["timeout"],"expected":"timeout"}
+{"id":"idempotent_replay","tool":"counter_add","key":"x","idempotency_key":"run-1-step-1","repeat":2,"expected_value":1}
+{"id":"different_keys_execute","tool":"counter_add","key":"x","idempotency_keys":["a","b"],"expected_value":2}

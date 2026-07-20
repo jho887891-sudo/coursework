@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Lesson 1 Agent 建模与边界课堂交互演示"
+    />
+    <title>Lesson 1 · Agent 决策循环交互演示</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <p class="eyebrow">AGENT SYSTEMS · LESSON 1</p>
+          <h1>运行时决策循环</h1>
+          <p class="subtitle">
+            State → Policy → Action → Environment → Observation → State
+          </p>
+        </div>
+
+        <div class="header-actions">
+          <div class="mode-switch" role="group" aria-label="演示模式">
+            <button class="mode-button is-active" data-mode="teacher">
+              教师模式
+            </button>
+            <button class="mode-button" data-mode="student">
+              学生预测
+            </button>
+          </div>
+          <button id="fullscreen-button" class="icon-button" type="button">
+            全屏
+          </button>
+        </div>
+      </header>
+
+      <nav class="scenario-nav" aria-label="场景选择">
+        <button class="scenario-button is-active" data-scenario="complete">
+          <span class="scenario-number">01</span>
+          <span>
+            <strong>信息完整</strong>
+            <small>动作不等于事实</small>
+          </span>
+        </button>
+        <button class="scenario-button" data-scenario="missingDate">
+          <span class="scenario-number">02</span>
+          <span>
+            <strong>缺少日期</strong>
+            <small>运行时获取信息</small>
+          </span>
+        </button>
+        <button class="scenario-button" data-scenario="readFailure">
+          <span class="scenario-number">03</span>
+          <span>
+            <strong>读取失败</strong>
+            <small>错误改变下一动作</small>
+          </span>
+        </button>
+        <button class="scenario-button" data-scenario="userDeclined">
+          <span class="scenario-number">04</span>
+          <span>
+            <strong>用户拒绝</strong>
+            <small>明确合法终止</small>
+          </span>
+        </button>
+      </nav>
+
+      <section class="lesson-heading" aria-labelledby="scenario-title">
+        <div>
+          <p id="scenario-kicker" class="section-kicker"></p>
+          <h2 id="scenario-title"></h2>
+          <p id="scenario-objective" class="scenario-objective"></p>
+        </div>
+        <div class="step-meta">
+          <span id="cycle-label" class="cycle-label"></span>
+          <span id="step-counter" class="step-counter"></span>
+        </div>
+      </section>
+
+      <section class="process-stepper" aria-label="当前 Agent 循环阶段">
+        <div class="process-line" aria-hidden="true"></div>
+        <div class="process-stage" data-phase="state">
+          <span>1</span>
+          <strong>State</strong>
+          <small>当前已知信息</small>
+        </div>
+        <div class="process-stage" data-phase="predict">
+          <span>2</span>
+          <strong>预测</strong>
+          <small>学生充当 Policy</small>
+        </div>
+        <div class="process-stage" data-phase="action">
+          <span>3</span>
+          <strong>Action</strong>
+          <small>系统提出意图</small>
+        </div>
+        <div class="process-stage" data-phase="observation">
+          <span>4</span>
+          <strong>Observation</strong>
+          <small>环境返回事实</small>
+        </div>
+        <div class="process-stage" data-phase="termination">
+          <span>5</span>
+          <strong>Termination</strong>
+          <small>完成或停止</small>
+        </div>
+      </section>
+
+      <main class="teaching-grid">
+        <section class="panel state-panel" aria-labelledby="state-title">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">CURRENT STATE</p>
+              <h3 id="state-title">当前状态</h3>
+            </div>
+            <span id="state-version" class="state-version">S0</span>
+          </div>
+          <div id="state-table" class="state-table"></div>
+          <p class="state-hint">
+            黄色表示本轮缺失或关注字段，绿色表示刚被 Observation 更新。
+          </p>
+        </section>
+
+        <section class="panel stage-panel" aria-labelledby="stage-title">
+          <div class="panel-heading">
+            <div>
+              <p id="stage-kicker" class="panel-kicker">PREDICT</p>
+              <h3 id="stage-title">请预测下一动作</h3>
+            </div>
+            <span id="phase-badge" class="phase-badge"></span>
+          </div>
+
+          <div id="stage-content" class="stage-content" aria-live="polite"></div>
+
+          <div id="prediction-feedback" class="prediction-feedback" hidden></div>
+        </section>
+
+        <aside class="panel explanation-panel" aria-labelledby="explanation-title">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">TEACHING NOTE</p>
+              <h3 id="explanation-title">本步解释</h3>
+            </div>
+          </div>
+
+          <div class="teaching-note">
+            <p id="teaching-question" class="teaching-question"></p>
+            <p id="teaching-explanation" class="teaching-explanation"></p>
+          </div>
+
+          <div class="invariant-box">
+            <span>本步不变量</span>
+            <p id="invariant-text"></p>
+          </div>
+
+          <details class="code-mapping">
+            <summary>对应到 Rust 代码</summary>
+            <p id="code-mapping-text"></p>
+            <a href="../src/agent.rs" target="_blank">打开 agent.rs</a>
+          </details>
+        </aside>
+      </main>
+
+      <section class="timeline-section" aria-labelledby="timeline-title">
+        <div class="timeline-heading">
+          <div>
+            <p class="panel-kicker">TRACE</p>
+            <h3 id="timeline-title">本次运行时间线</h3>
+          </div>
+          <p>当前节点使用深蓝色；已发生事件会一直保留。</p>
+        </div>
+        <div id="timeline" class="timeline"></div>
+      </section>
+
+      <footer class="control-bar">
+        <div class="keyboard-hint">
+          <span><kbd>←</kbd> 上一步</span>
+          <span><kbd>→</kbd> / <kbd>Space</kbd> 下一步</span>
+          <span><kbd>R</kbd> 重置</span>
+          <span><kbd>1–4</kbd> 切换场景</span>
+        </div>
+
+        <div class="control-actions">
+          <button id="reset-button" class="secondary-button" type="button">
+            重置场景
+          </button>
+          <button id="previous-button" class="secondary-button" type="button">
+            上一步
+          </button>
+          <button id="next-button" class="primary-button" type="button">
+            揭晓下一步
+          </button>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

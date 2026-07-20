@@ -1,0 +1,4 @@
+# 应用配置文件
+api_key=sk-1234567890abcdef
+model=gpt-4
+max_tokens=4096

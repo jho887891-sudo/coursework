@@ -1,0 +1,1 @@
+{"request_id":"demo-permission","tool_name":"counter_add","attempt":0,"event_type":"request_rejected","detail":"缺少权限：modify_state","elapsed_millis":0}

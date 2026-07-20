@@ -1,0 +1,3 @@
+api_key=sk-ok
+max_tokens no equals sign here
+model=gpt-4

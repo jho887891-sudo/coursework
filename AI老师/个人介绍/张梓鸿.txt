@@ -1,0 +1,5 @@
+个人技术栈
+1.掌握JavaSE,Linux,Mysql,Javaweb
+2.掌握SSM,Redis6,Jmeter5.x,Git代码管理
+3.掌握C语言数据结构和基本语法
+4.掌握AlibabaCloud,MybatisPlus

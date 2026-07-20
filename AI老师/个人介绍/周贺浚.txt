@@ -1,0 +1,4 @@
+个人技术栈：
+1.熟悉html,css,JavaScript语言。能够对页面实现简单的布局和交互。
+2.掌握java、Python语言，接触过Mybatis框架。常用MySQL数据库，有基本的代码能力，基本的源码阅读能力。
+3.会使用Git、Docker、Linux等基础操作。

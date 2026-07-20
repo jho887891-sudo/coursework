@@ -1,0 +1,32 @@
+{
+  "document_id": "项目名称：离线教学系统",
+  "clauses": [
+    {
+      "clause_id": "c-01",
+      "clause_text": "检查备注：缺少签字，等待补充材料。报价为 880000 元。",
+      "risk_decision": "risk",
+      "evidence_status": "supported",
+      "evidence_strength": "strong",
+      "risk_type": "missing_signature",
+      "severity": "medium",
+      "claim": "投标文件缺少签字，需补充后人工复核",
+      "evidence": [
+        {
+          "source_id": "R1",
+          "locator": "1.1",
+          "quote": "出现「缺少签字」时，应标记待补充并转人工复核。"
+        }
+      ],
+      "reasoning_summary": "条款明确出现「缺少签字」，匹配R1规则",
+      "confidence_basis": [
+        "找到直接规则原文",
+        "条款明确包含关键词"
+      ],
+      "limitations": [
+        "需确认是否为关键签字页"
+      ],
+      "next_action": "human_review"
+    }
+  ],
+  "trace_path": ""
+}

@@ -1,0 +1,12 @@
+[workspace]
+resolver = "2"
+members = [
+  "lesson-01-agent-model",
+  "lesson-02-runtime",
+  "lesson-03-tools",
+  "lesson-04-evidence",
+  "lesson-05-planning",
+  "lesson-06-evaluation",
+  "lesson-07-memory",
+  "final-project-starter",
+]
