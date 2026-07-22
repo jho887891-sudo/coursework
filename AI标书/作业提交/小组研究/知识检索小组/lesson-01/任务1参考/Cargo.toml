@@ -1,0 +1,18 @@
+[package]
+name = "embedding-engine"
+version = "0.1.0"
+edition = "2024"
+description = "任务1：EmbeddingEngine — 加载 BGE-M3 ONNX 模型，批量 embedding"
+
+[dependencies]
+anyhow = "1"
+ort = { version = "2.0.0-rc.12", features = ["copy-dylibs"] }
+tokenizers = "0.23"
+ndarray = "0.17"
+
+# Windows MSVC CRT 兼容：
+# esaxx-rs 硬编码了 static_crt(true) 强制 /MT，
+# 与 ONNX Runtime 预编译的 /MD 冲突。
+# 本地 patch 改为 static_crt(false) 统一为 /MD。
+[patch.crates-io]
+esaxx-rs = { path = "esaxx-rs-patched" }

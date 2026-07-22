@@ -1,0 +1,6 @@
+# 全局关闭 crt-static → 所有 C 依赖统一使用动态 CRT /MD
+# esaxx-rs 已通过 [patch] 改为 static_crt(false)
+# onig_sys 等没有显式设置的依赖通过此 flag 切换到 /MD
+# 与 ONNX Runtime 预编译的 /MD 一致，解决 LNK2038 冲突
+[target.x86_64-pc-windows-msvc]
+rustflags = ["-C", "target-feature=-crt-static"]
